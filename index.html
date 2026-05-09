@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaluasi - Parel & Partner</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+<body>
+    <div class="grain-overlay"></div>
+    
+    <main id="main-container">
+        <!-- Slide 1 -->
+        <section class="slide active" id="slide-1">
+            <div class="slide-content">
+                <h1 class="title">Evaluasi.</h1>
+                <p class="subtitle">Perjalanan yang jauh telah kita tempuh.</p>
+                <button id="start-btn" class="primary-btn">Buka Kenangan Kita</button>
+            </div>
+            <div class="floating-elements"></div>
+        </section>
+
+        <!-- Slide 2: Photobooth -->
+        <section class="slide" id="slide-2">
+            <div class="slide-content">
+                <div class="photobooth-strip">
+                    <div class="frame"><img src="foto/WhatsApp%20Image%202026-05-08%20at%2022.11.37%20(1).jpeg"></div>
+                    <div class="frame"><img src="foto/WhatsApp%20Image%202026-05-08%20at%2022.11.37.jpeg"></div>
+                    <div class="frame"><img src="foto/WhatsApp%20Image%202026-05-08%20at%2022.11.38%20(1).jpeg"></div>
+                </div>
+                <div class="lyric-box">
+                    <p class="lyric">"Luka-luka yang dulu..."</p>
+                    <p class="sub-lyric">Hanya untuk membuatmu lebih kuat.</p>
+                </div>
+                <button class="next-btn" onclick="nextSlide(3)">Lanjut →</button>
+            </div>
+        </section>
+
+        <!-- Slide 3: Polaroids -->
+        <section class="slide" id="slide-3">
+            <div class="slide-content">
+                <div class="polaroid-row">
+                    <div class="polaroid"><img src="foto/WhatsApp%20Image%202026-05-08%20at%2022.11.38.jpeg"><p class="cap">Cukup.</p></div>
+                    <div class="polaroid"><img src="foto/WhatsApp%20Image%202026-05-08%20at%2022.11.36.jpeg"><p class="cap">Sangat cukup.</p></div>
+                </div>
+                <div class="lyric-box">
+                    <p class="lyric">"Ingatlah kau cukup..."</p>
+                    <p class="sub-lyric">Dan semua akan baik-baik saja.</p>
+                </div>
+                <button class="next-btn" onclick="nextSlide(4)">Lanjut →</button>
+            </div>
+        </section>
+
+        <!-- Slide 4: Split -->
+        <section class="slide" id="slide-4">
+            <div class="slide-content">
+                <div class="modern-split">
+                    <div class="m-img"><img src="foto/WhatsApp%20Image%202026-05-08%20at%2022.11.37%20(1).jpeg"></div>
+                    <div class="m-text">
+                        <p class="lyric">"Membasuh..."</p>
+                        <p class="description">Saling menyembuhkan di saat dunia sedang tidak baik-baik saja.</p>
+                    </div>
+                </div>
+                <button class="next-btn" onclick="nextSlide(5)">Lanjut →</button>
+            </div>
+        </section>
+
+        <!-- Slide 5: Grid -->
+        <section class="slide" id="slide-5">
+            <div class="slide-content">
+                <div class="mini-grid">
+                    <img src="foto/WhatsApp%20Image%202026-05-08%20at%2022.11.37.jpeg">
+                    <img src="foto/WhatsApp%20Image%202026-05-08%20at%2022.11.38%20(1).jpeg">
+                </div>
+                <div class="lyric-box">
+                    <p class="lyric">"Kau adalah rumah..."</p>
+                    <p class="sub-lyric">Tempatku pulang dari bisingnya dunia.</p>
+                </div>
+                <button class="next-btn" onclick="nextSlide(6)">Lanjut →</button>
+            </div>
+        </section>
+
+        <!-- Slide 6: Cinematic -->
+        <section class="slide" id="slide-6">
+            <div class="cinematic-bg">
+                <img src="foto/WhatsApp%20Image%202026-05-08%20at%2022.11.38.jpeg">
+            </div>
+            <div class="slide-content dark">
+                <h2 class="huge-lyric">"Bayangkan jika kita tidak menyerah..."</h2>
+                <button class="next-btn white" onclick="nextSlide(7)">Hampir Sampai →</button>
+            </div>
+        </section>
+
+        <!-- Slide 7: Reveal -->
+        <section class="slide" id="slide-7">
+            <div class="slide-content">
+                <div class="finale-reveal">
+                    <img src="foto/WhatsApp%20Image%202026-05-08%20at%2022.11.36.jpeg">
+                    <div class="reveal-text">
+                        <p class="lyric">"Kita takkan pernah sampai di sini."</p>
+                    </div>
+                </div>
+                <button class="next-btn" onclick="nextSlide(8)">Terakhir →</button>
+            </div>
+        </section>
+
+        <!-- Slide 8: Last Message (Minimalist) -->
+        <section class="slide" id="slide-8">
+            <div class="slide-content">
+                <div class="minimal-letter">
+                    <p class="letter-text">Terima kasih sudah menjadi bagian dari evaluasi hidupku yang paling indah. Kita sudah sejauh ini, dan aku tidak ingin berhenti di sini.</p>
+                    <p class="letter-text">Mari tetap bersama sampai akhir lagu.</p>
+                    <div class="letter-footer">
+                        <span class="sig">— Vania</span>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-tag">Song: Evaluasi - Hindia</div>
+        </section>
+    </main>
+
+    <audio id="bg-music" loop>
+        <source src="musik/ssstik.io_1778301016301.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+</html>

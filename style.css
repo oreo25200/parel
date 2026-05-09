@@ -1,0 +1,187 @@
+:root {
+    --cream: #fdf6e3;
+    --charcoal: #2c3e50;
+    --accent: #e67e22;
+    --white: #ffffff;
+    --serif: 'Instrument Serif', serif;
+    --sans: 'Inter', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--cream);
+    color: var(--charcoal);
+    font-family: var(--sans);
+    overflow: hidden;
+    height: 100vh;
+}
+
+.grain-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/7/76/1k_Single_Color_Static_Grain.png');
+    opacity: 0.05;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+.slide {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.6s ease;
+    padding: 1rem;
+}
+
+.slide.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.slide-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    width: 100%;
+    max-width: 800px;
+    height: 100%;
+    text-align: center;
+}
+
+.slide-content.dark { color: white; }
+
+/* Slide 1 */
+.title { font-family: var(--serif); font-size: 4rem; font-style: italic; }
+.subtitle { font-size: 1rem; letter-spacing: 2px; opacity: 0.6; }
+.primary-btn {
+    padding: 1rem 2.5rem;
+    background: var(--charcoal);
+    color: var(--cream);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+/* Photo Elements - Neatness Fix */
+img { width: 100%; height: 100%; object-fit: cover; }
+
+.photobooth-strip {
+    display: flex;
+    gap: 0.5rem;
+    padding: 0.8rem;
+    background: white;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.frame { width: 120px; height: 160px; background: #eee; }
+
+.polaroid-row { display: flex; gap: 1rem; }
+.polaroid {
+    background: white;
+    padding: 0.8rem 0.8rem 2.5rem 0.8rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    width: 160px;
+}
+.polaroid .cap { font-family: var(--serif); font-size: 0.8rem; margin-top: 0.5rem; }
+
+.modern-split {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    width: 100%;
+}
+.m-img { width: 250px; height: 350px; border: 8px solid white; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+.m-text { flex: 1; text-align: left; }
+
+.mini-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+    width: 300px;
+}
+.mini-grid img { border: 5px solid white; height: 200px; }
+
+/* Cinematic */
+.cinematic-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
+.cinematic-bg img { filter: brightness(0.4); }
+.huge-lyric { font-family: var(--serif); font-size: 3rem; font-style: italic; max-width: 600px; }
+
+/* Finale */
+.finale-reveal {
+    width: 100%;
+    max-width: 400px;
+    height: 300px;
+    position: relative;
+    border: 10px solid white;
+}
+.reveal-text {
+    position: absolute;
+    bottom: 0; left: 0; width: 100%;
+    background: linear-gradient(transparent, rgba(0,0,0,0.7));
+    padding: 1.5rem;
+    color: white;
+}
+
+/* Minimalist Last Slide */
+.minimal-letter {
+    max-width: 450px;
+    text-align: left;
+}
+.letter-text {
+    font-family: var(--serif);
+    font-size: 1.8rem;
+    line-height: 1.4;
+    margin-bottom: 2rem;
+    font-style: italic;
+}
+.letter-footer { border-top: 1px solid rgba(0,0,0,0.1); padding-top: 1rem; }
+.sig { font-weight: 600; opacity: 0.7; }
+
+/* Navigation Buttons - Flow Fix */
+.next-btn {
+    padding: 0.6rem 1.5rem;
+    background: transparent;
+    border: 1px solid var(--charcoal);
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: 0.3s;
+    flex-shrink: 0;
+}
+.next-btn:hover { background: var(--charcoal); color: var(--cream); }
+.next-btn.white { border-color: white; color: white; }
+
+.lyric { font-family: var(--serif); font-size: 2rem; font-style: italic; }
+.sub-lyric { font-size: 0.9rem; opacity: 0.5; }
+
+.footer-tag { position: fixed; bottom: 1rem; left: 1rem; font-size: 0.7rem; opacity: 0.3; }
+
+/* Responsive Viewport Adjustments */
+@media (max-height: 600px) {
+    .slide-content { gap: 0.8rem; padding: 0.5rem; }
+    .frame { width: 90px; height: 120px; }
+    .polaroid { width: 130px; padding-bottom: 2rem; }
+    .m-img { width: 150px; height: 220px; }
+    .title { font-size: 2.5rem; }
+    .lyric { font-size: 1.3rem; }
+    .letter-text { font-size: 1.2rem; }
+    .next-btn { padding: 0.5rem 1.2rem; font-size: 0.8rem; }
+}
+
+@media (max-width: 500px) {
+    .modern-split { flex-direction: column; text-align: center; }
+    .m-text { text-align: center; }
+    .photobooth-strip { flex-wrap: wrap; justify-content: center; }
+}
